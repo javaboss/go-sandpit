@@ -19,4 +19,12 @@ func main() {
 	fmt.Println(z)
 	fmt.Println(len(z))
 	fmt.Println(cap(z))
+
+	// slice of slice (mulit-dimensional)
+	jb := []string{"James", "Bond"}
+	mp := []string{"Miss", "Moneypenny"}
+	fmt.Println(jb)
+	fmt.Println(mp)
+	xp := [][]string{jb, mp}
+	fmt.Println(xp)
 }
