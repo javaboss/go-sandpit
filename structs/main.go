@@ -4,7 +4,7 @@ import "fmt"
 
 // Struct
 type person struct {
-	first string
+	first string // fields with the same type can be declared on the same line i.e. first, last string
 	last  string
 	age   int
 }
@@ -48,4 +48,16 @@ func main() {
 	// for name collisions you can reference the type specificall i.e. sa1.person.first
 	fmt.Println(sa1.first, sa1.last, sa1.age, sa1.ltk)
 
+	// Anonymous Structs
+	p100 := struct {
+		first string
+		last  string
+		age   int
+	}{
+		first: "Neil",
+		last:  "Liddicott",
+		age:   46,
+	}
+
+	fmt.Println(p100)
 }
