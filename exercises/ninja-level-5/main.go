@@ -14,13 +14,13 @@ type vehicle struct {
 }
 
 type truck struct {
-	vehicle   vehicle
+	vehicle   // no need to qualify i.e. typeOfVehicle vehicle - you can just put the struct on it's own
 	fourWheel bool
 }
 
 type sedan struct {
-	vehicle vehicle
-	luxury  bool
+	vehicle
+	luxury bool
 }
 
 func main() {
@@ -73,13 +73,30 @@ func main() {
 
 	// EXERCISE 3
 	fmt.Println("EXERCISE 3")
-	neilsTruck := truck{
+	helensTruck := truck{
 		vehicle: vehicle{
-			doors:  4,
-			colour: "black",
+			doors:  5,
+			colour: "Carbon Black",
 		},
 		fourWheel: true,
 	}
 
-	fmt.Println(neilsTruck)
+	neilsSedan := sedan{
+		vehicle: vehicle{
+			doors:  4,
+			colour: "Silver",
+		},
+		luxury: true,
+	}
+
+	fmt.Println(helensTruck)
+	fmt.Println(neilsSedan)
+
+	fmt.Println(helensTruck.colour)
+	fmt.Println(neilsSedan.luxury)
+
+	// Exercise 4
+	fmt.Println("EXERCISE 4")
+	// Create an anonymous struct - include things like maps + slices inside
+
 }
