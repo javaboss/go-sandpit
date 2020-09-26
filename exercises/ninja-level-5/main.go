@@ -99,4 +99,25 @@ func main() {
 	fmt.Println("EXERCISE 4")
 	// Create an anonymous struct - include things like maps + slices inside
 
+	as := struct {
+		firstname string
+		lastname  string
+		friends   map[string]int
+		drinks    []string
+	}{
+		firstname: "neil",
+		lastname:  "liddicott",
+		friends: map[string]int{
+			"Helen": 123,
+			"Jack":  456,
+			"Anna":  789,
+		},
+		drinks: []string{
+			"Stella",
+			"Water",
+			"Milk",
+		},
+	}
+
+	fmt.Println(as)
 }
