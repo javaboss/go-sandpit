@@ -2,6 +2,42 @@ package main
 
 import "fmt"
 
+// func (r receiver) identifier(parameters) (returns(s)) {...}
+type person struct {
+	first string
+	last  string
+}
+
+type secretAgent struct {
+	person
+	ltk bool
+}
+
+func (s secretAgent) speak() {
+	fmt.Println("I am", s.first, s.last, " - the secretAgent speak ")
+}
+
+func (p person) speak() {
+	fmt.Println("I am", p.first, p.last, " - the person speak")
+}
+
+// INTERFACES
+type human interface {
+	speak()
+}
+
+func barbar(h human) {
+
+	// You cannot just access h.first or h.last because you don't know which instance you have been passed
+	// you need to use assertion
+	switch h.(type) {
+	case person:
+		fmt.Println("I was passed into barbar", h.(person).first)
+	case secretAgent:
+		fmt.Println("I was passed into barbar", h.(secretAgent).first)
+	}
+}
+
 func main() {
 	foo()
 	bar("Neil")
@@ -28,6 +64,55 @@ func main() {
 	*/
 
 	fmt.Println("The total is", sum)
+
+	// DEFER when adding defer the function is executed when the enclosing function completes
+	// defer one()
+	one()
+	two()
+
+	// METHODS
+	sa1 := secretAgent{
+		person: person{
+			"James",
+			"Bond",
+		},
+		ltk: true,
+	}
+
+	sa2 := secretAgent{
+		person: person{
+			"Miss",
+			"Moneypenny",
+		},
+		ltk: false,
+	}
+
+	fmt.Println(sa1)
+	fmt.Println(sa2)
+	sa1.speak()
+	sa2.speak()
+
+	p1 := person{
+		first: "Dr.",
+		last:  "Yes",
+	}
+	fmt.Println(p1)
+
+	// INTERFACES
+	barbar(sa1)
+	barbar(sa2)
+	barbar(p1)
+
+	// ANONYMOUS FUNCTIONS
+	func(x int) {
+		fmt.Println("The Meaning of Life", x)
+	}(42)
+
+	// FUNC EXPRESSION
+	f := func(x int) {
+		fmt.Println("The year big brother stared watcing", x)
+	}
+	f(1984)
 }
 
 func foo() {
@@ -64,4 +149,12 @@ func sum(x ...int) int {
 	}
 
 	return sum
+}
+
+func one() {
+	fmt.Println("One")
+}
+
+func two() {
+	fmt.Println("Two")
 }
