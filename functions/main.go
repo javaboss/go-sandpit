@@ -14,7 +14,19 @@ func main() {
 	fmt.Println(y)
 
 	// Variadic Parameters
-	sum := sum(2, 3, 4, 5, 6, 7, 8, 9)
+	// you can pass in a variable number of parameters
+	// if you are passing a variadic parameter it has to be the LAST paramaeter
+	// ...int in the method signature denotes variadic parameters
+	// to unfurl a slice of ints you do int...
+	// variadic parameters also allow *nothing* to  be passed in
+
+	sum := sum(2, 3, 4, 5, 6, 7, 9)
+
+	/* or...
+	 	xi := []int{2, 3, 4, 5, 6, 7, 8, 9}
+		sum := sum(xi...)
+	*/
+
 	fmt.Println("The total is", sum)
 }
 
