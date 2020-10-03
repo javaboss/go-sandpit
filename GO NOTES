@@ -1,0 +1,18 @@
+GO NOTES
+
+Reading:
+BILL KENEDY COMPOSITION
+
+** TYPES
+KEYWORD IDENTIFIER TYPE
+var age int
+type person struct
+type human interface
+
+** INTERFACES
+A VALUE CAN BE MORE THAN ONE TYPE
+An interface says "if you have these methods then you are also my type"
+Conversion and assertion.  int(...) does conversion and assertion h.(person).<method/member>
+ALL TYPES IMPLEMENT THE EMPTY INTERFACE
+If you see the empty interface being asked for on any method definition it just means you can pass any type
+ 
