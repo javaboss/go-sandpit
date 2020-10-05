@@ -113,6 +113,15 @@ func main() {
 		fmt.Println("The year big brother stared watcing", x)
 	}
 	f(1984)
+
+	// RETURNING A FUNCTION
+	xy := returnAFunc()
+	fmt.Printf("%T\n", xy)
+	i := xy()
+	fmt.Println(i)
+
+	// this could also be done as...
+	fmt.Println(returnAFunc()())
 }
 
 func foo() {
@@ -157,4 +166,10 @@ func one() {
 
 func two() {
 	fmt.Println("Two")
+}
+
+func returnAFunc() func() int {
+	return func() int {
+		return 451
+	}
 }
