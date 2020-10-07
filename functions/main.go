@@ -133,6 +133,17 @@ func main() {
 
 	oddSum := evenOddSum(sumIt, true, allNumbers...)
 	fmt.Println("Odd Numnbers", oddSum)
+
+	// CLOSURES
+	a := incrementor()
+	b := incrementor()
+
+	fmt.Println(a())
+	fmt.Println(a())
+	fmt.Println(a())
+	fmt.Println(a())
+	fmt.Println(b())
+	fmt.Println(b())
 }
 
 func foo() {
@@ -209,4 +220,13 @@ func evenOddSum(f func(x ...int) int, isOdd bool, y ...int) int {
 	}
 	total := f(xi...) // callback is made here
 	return total
+}
+
+// CLOSURES
+func incrementor() func() int {
+	var x int
+	return func() int {
+		x++
+		return x
+	}
 }
