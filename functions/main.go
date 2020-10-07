@@ -124,8 +124,12 @@ func main() {
 	fmt.Println(returnAFunc()())
 
 	// CALLBACKS
-	t := evenSum(sumIt, []int{1, 2, 3, 4, 5, 6, 7, 8, 9}...)
-	fmt.Println(t)
+	allNumbers := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
+	allSum := sumIt(allNumbers...)
+	fmt.Println("All numbers", allSum)
+
+	evenSum := evenSum(sumIt, allNumbers...)
+	fmt.Println("Even Numnbers", evenSum)
 }
 
 func foo() {
