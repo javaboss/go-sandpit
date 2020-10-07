@@ -128,8 +128,11 @@ func main() {
 	allSum := sumIt(allNumbers...)
 	fmt.Println("All numbers", allSum)
 
-	evenSum := evenSum(sumIt, allNumbers...)
+	evenSum := evenOddSum(sumIt, false, allNumbers...)
 	fmt.Println("Even Numnbers", evenSum)
+
+	oddSum := evenOddSum(sumIt, true, allNumbers...)
+	fmt.Println("Odd Numnbers", oddSum)
 }
 
 func foo() {
@@ -191,11 +194,17 @@ func sumIt(x ...int) int {
 	return n
 }
 
-func evenSum(f func(x ...int) int, y ...int) int {
+func evenOddSum(f func(x ...int) int, isOdd bool, y ...int) int {
 	var xi []int
 	for _, v := range y {
-		if v%2 == 0 {
-			xi = append(xi, v)
+		if !isOdd {
+			if v%2 == 0 {
+				xi = append(xi, v)
+			}
+		} else {
+			if v%2 != 0 {
+				xi = append(xi, v)
+			}
 		}
 	}
 	total := f(xi...) // callback is made here
