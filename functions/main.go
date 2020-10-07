@@ -122,6 +122,10 @@ func main() {
 
 	// this could also be done as...
 	fmt.Println(returnAFunc()())
+
+	// CALLBACKS
+	t := evenSum(sumIt, []int{1, 2, 3, 4, 5, 6, 7, 8, 9}...)
+	fmt.Println(t)
 }
 
 func foo() {
@@ -172,4 +176,24 @@ func returnAFunc() func() int {
 	return func() int {
 		return 451
 	}
+}
+
+// CALL BACKS - used when a function is passed into a function as an argument
+func sumIt(x ...int) int {
+	n := 0
+	for _, v := range x {
+		n += v
+	}
+	return n
+}
+
+func evenSum(f func(x ...int) int, y ...int) int {
+	var xi []int
+	for _, v := range y {
+		if v%2 == 0 {
+			xi = append(xi, v)
+		}
+	}
+	total := f(xi...) // callback is made here
+	return total
 }
