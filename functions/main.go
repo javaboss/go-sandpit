@@ -223,6 +223,8 @@ func evenOddSum(f func(x ...int) int, isOdd bool, y ...int) int {
 }
 
 // CLOSURES
+// a closure is a function a function value that references variables from outside it's body
+// the function may access and assign to the referenced variables
 func incrementor() func() int {
 	var x int
 	return func() int {
