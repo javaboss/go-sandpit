@@ -144,6 +144,14 @@ func main() {
 	fmt.Println(a())
 	fmt.Println(b())
 	fmt.Println(b())
+
+	// RECURSION
+	fmt.Println(4 * 3 * 2 * 1)
+	n := factorial(4)
+	fmt.Println("FACTORIAL=", n)
+	// or use a loop
+	n2 := loopFact(4)
+	fmt.Println("LOOP FACTORIAL=", n2)
 }
 
 func foo() {
@@ -231,4 +239,23 @@ func incrementor() func() int {
 		x++
 		return x
 	}
+}
+
+// RECUSION - FACTORIALS is an exmaple
+func factorial(n int) int {
+	if n == 0 {
+		return 1
+	}
+
+	return n * factorial(n-1)
+}
+
+// Rather than recursion, you could use a loop, for example:
+func loopFact(n int) int {
+	total := 1
+	for ; n > 0; n-- {
+		total *= n
+	}
+
+	return total
 }
