@@ -58,7 +58,7 @@ func main() {
 
 	sum := sum(2, 3, 4, 5, 6, 7, 9)
 
-	/* or...
+	/* or... to unfurl the slice
 	 	xi := []int{2, 3, 4, 5, 6, 7, 8, 9}
 		sum := sum(xi...)
 	*/
