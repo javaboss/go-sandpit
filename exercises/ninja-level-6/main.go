@@ -28,6 +28,16 @@ func bar1(sliceOfInt []int) int {
 	return total
 }
 
+func one() {
+	fmt.Println("One")
+	defer two() // this defers the execution of this function until the enclosing function has completed
+	fmt.Println("Three")
+}
+
+func two() {
+	fmt.Println("Two")
+}
+
 func main() {
 	// EXERCISE 1
 	// create a func foo() that returns an int
@@ -37,7 +47,7 @@ func main() {
 	fmt.Println(f)
 	fmt.Println(b1, b2)
 
-	// Exercise 2
+	// EXERCISE 2
 	// create a func with an identifier foo1 that take a variadic parameter of type int
 	// pass in a value of type []int and unfurl the slice of int
 	sliceOfInts := []int{1, 2, 3, 4, 5, 6, 7, 8, 9} // create a slice of int
@@ -47,4 +57,8 @@ func main() {
 	// do the same - but with a slice of ints... no need to unfurl the variadic parameters
 	total2 := bar1(sliceOfInts)
 	fmt.Println(total2)
+
+	// EXERCISE 3
+	// create functions using 'defer'
+	one()
 }
