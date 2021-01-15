@@ -11,8 +11,21 @@ func bar() (int, string) {
 }
 
 // takes a variadic parameter
+// ranges over the values
 func foo1(variadics ...int) int {
-	return 42
+	total := 0
+	for _, v := range variadics {
+		total += v
+	}
+	return total
+}
+
+func bar1(sliceOfInt []int) int {
+	total := 0
+	for _, v := range sliceOfInt {
+		total += v
+	}
+	return total
 }
 
 func main() {
@@ -30,4 +43,8 @@ func main() {
 	sliceOfInts := []int{1, 2, 3, 4, 5, 6, 7, 8, 9} // create a slice of int
 	total := foo1(sliceOfInts...)                   // unfurl slice when passing to functions
 	fmt.Println(total)
+
+	// do the same - but with a slice of ints... no need to unfurl the variadic parameters
+	total2 := bar1(sliceOfInts)
+	fmt.Println(total2)
 }
