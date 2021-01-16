@@ -38,6 +38,16 @@ func two() {
 	fmt.Println("Two")
 }
 
+type person struct {
+	first string
+	last  string
+	age   int
+}
+
+func (p person) speak() {
+	fmt.Println("Hello, my name is", p.first, p.last, "my age is", p.age)
+}
+
 func main() {
 	// EXERCISE 1
 	// create a func foo() that returns an int
@@ -61,4 +71,14 @@ func main() {
 	// EXERCISE 3
 	// create functions using 'defer'
 	one()
+
+	// EXERCISE 4
+	// Create a user defined struct with identifer 'person' and fields firstname, lastname & age
+	// add a method to the type 'person' called 'speak' that outputs their name and age
+	neil := person{
+		first: "Neli",
+		last:  "Liddicott",
+		age:   47,
+	}
+	neil.speak()
 }
