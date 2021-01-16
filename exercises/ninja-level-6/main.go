@@ -81,4 +81,7 @@ func main() {
 		age:   47,
 	}
 	neil.speak()
+
+	// EXERCISE 5
+	// Create
 }
