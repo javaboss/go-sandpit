@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
 func foo() int {
 	return 10
@@ -48,6 +51,28 @@ func (p person) speak() {
 	fmt.Println("Hello, my name is", p.first, p.last, "my age is", p.age)
 }
 
+type shape interface {
+	area() float64
+}
+type circle struct {
+	radius float64
+}
+type square struct {
+	length float64
+}
+
+func (c circle) area() float64 { // this makes the circle implicitly  implement the shape interface
+	return math.Pi * (c.radius * c.radius)
+}
+
+func (s square) area() float64 { // same for the  square
+	return s.length * s.length
+}
+
+func info(s shape) {
+	fmt.Println("The area is ", s.area())
+}
+
 func main() {
 	// EXERCISE 1
 	// create a func foo() that returns an int
@@ -84,6 +109,7 @@ func main() {
 
 	/* EXERCISE 5
 	create a type CIRCLE
+	create a type SQUARE
 	  attach a method to each that calculates AREA and returns it
 	  circle area= π r 2
 	  square area = L * W
@@ -94,4 +120,15 @@ func main() {
 	  use func info to print the area of square
 	  use func info to print the area of circle
 	*/
+
+	sq := square{
+		length: 5,
+	}
+
+	cir := circle{
+		100,
+	}
+
+	info(sq)
+	info(cir)
 }
