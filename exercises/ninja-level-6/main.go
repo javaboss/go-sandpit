@@ -138,6 +138,8 @@ func main() {
 		fmt.Println("The string is", x)
 	}("Mr String")
 
+	/* EXERCISE 7
+	Assign a func to a variable then call that func */
 	funky := func() string {
 		return "Mr String"
 	}
