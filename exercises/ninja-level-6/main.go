@@ -131,4 +131,15 @@ func main() {
 
 	info(sq)
 	info(cir)
+
+	/* EXERCISE 6
+	build and use an Anonymous function */
+	func(x string) {
+		fmt.Println("The string is", x)
+	}("Mr String")
+
+	funky := func() string {
+		return "Mr String"
+	}
+	fmt.Println(funky())
 }
