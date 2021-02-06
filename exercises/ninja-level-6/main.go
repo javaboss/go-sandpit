@@ -75,6 +75,16 @@ func info(s shape) {
 	fmt.Println("The area is ", s.area())
 }
 
+func newFunc() func() string {
+	// you could always just do: return func() string {}
+
+	f := func() string {
+		return "Here's your func!"
+	}
+
+	return f
+}
+
 func main() {
 	// EXERCISE 1
 	// create a func foo() that returns an int
@@ -148,5 +158,12 @@ func main() {
 	fmt.Printf("%T\n", funky)
 	fmt.Println(funky())
 	g = funky // functiona are 1st class citizens - so you can create a func and assign another func to it
+
+	/* EXERCISE 8
+	create a func that returns a func
+	assign the returned func to a variable
+	call the returned func */
+	newFunky := newFunc()
+	fmt.Println(newFunky())
 
 }
