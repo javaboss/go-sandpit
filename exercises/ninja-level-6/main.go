@@ -143,5 +143,6 @@ func main() {
 	funky := func() string {
 		return "Mr String"
 	}
+	fmt.Printf("%T\n", funky)
 	fmt.Println(funky())
 }
