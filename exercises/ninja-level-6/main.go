@@ -166,4 +166,15 @@ func main() {
 	newFunky := newFunc()
 	fmt.Println(newFunky())
 
+	/* EXERCISE 9
+	Uee a "Callback".  Create a func and pass it to a func as an argument */
+	cally := func() string {
+		return "This is a callback"
+	}
+	fmt.Println(myFunc(cally))
+
+}
+
+func myFunc(f func() string) string {
+	return f()
 }
