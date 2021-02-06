@@ -5,6 +5,8 @@ import (
 	"math"
 )
 
+var g func() string
+
 func foo() int {
 	return 10
 }
@@ -145,4 +147,6 @@ func main() {
 	}
 	fmt.Printf("%T\n", funky)
 	fmt.Println(funky())
+	g = funky // functiona are 1st class citizens - so you can create a func and assign another func to it
+
 }
