@@ -173,8 +173,28 @@ func main() {
 	}
 	fmt.Println(myFunc(cally))
 
+	/* CLOSURE
+	create a closure that encloses the scope of a variable */
+	a := incrementor()
+	b := incrementor()
+
+	fmt.Println(a())
+	fmt.Println(a())
+	fmt.Println(a())
+	fmt.Println(a())
+	fmt.Println(b())
+	fmt.Println(b())
+
 }
 
 func myFunc(f func() string) string {
 	return f()
+}
+
+func incrementor() func() int {
+	var x int
+	return func() int {
+		x++
+		return x
+	}
 }
