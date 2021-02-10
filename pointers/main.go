@@ -20,4 +20,18 @@ func main() {
 	*b = 43
 	fmt.Println(*b) // changes the value at the pointer location
 
+	x := 0
+	fmt.Println("X before=", &x)
+	fmt.Println("X before=", x)
+	foo(&x)
+	fmt.Println("X after=", &x)
+	fmt.Println("X after=", x)
+}
+
+func foo(y *int) {
+	fmt.Println("Y before=", y)
+	fmt.Println("Y before=", *y)
+	*y = 43
+	fmt.Println("Y after=", y)
+	fmt.Println("Y after=", *y)
 }
