@@ -9,7 +9,7 @@ type person struct {
 
 func changeMe(p *person) {
 	(*p).name = "Helen Liddicott"
-	(*p).age = 45
+	p.age = 45 // this is shorthand for (*p).age
 }
 
 func main() {
