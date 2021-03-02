@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 type person struct {
 	first string
 	last  string
@@ -20,4 +22,6 @@ func main() {
 	}
 
 	people := []person{p1, p2}
+
+	fmt.Println(people)
 }
