@@ -35,4 +35,13 @@ func main() {
 	} else {
 		fmt.Println(string(bs))
 	}
+
+	newPeople := []person{}
+	err = json.Unmarshal(bs, &newPeople)
+
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println(newPeople)
+	}
 }
