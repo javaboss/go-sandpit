@@ -36,7 +36,7 @@ func main() {
 		fmt.Println(string(bs))
 	}
 
-	newPeople := []person{}
+	var newPeople []person
 	err = json.Unmarshal(bs, &newPeople)
 
 	if err != nil {
