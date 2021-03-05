@@ -43,5 +43,9 @@ func main() {
 		fmt.Println(err)
 	} else {
 		fmt.Println(newPeople)
+
+		for i, v := range newPeople {
+			fmt.Println("Person Numnber", i, v)
+		}
 	}
 }
