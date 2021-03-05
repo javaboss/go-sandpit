@@ -45,7 +45,8 @@ func main() {
 		fmt.Println(newPeople)
 
 		for i, v := range newPeople {
-			fmt.Println("Person Numnber", i, v)
+			fmt.Println("Person Numnber", i)
+			fmt.Println(v.First, v.Last, v.Age)
 		}
 	}
 }
