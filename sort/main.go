@@ -14,5 +14,6 @@ func main() {
 	fmt.Println(xi)
 
 	fmt.Println(xs)
-
+	sort.Strings(xs)
+	fmt.Println(xs)
 }
