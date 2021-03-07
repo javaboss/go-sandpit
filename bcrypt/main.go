@@ -16,6 +16,15 @@ func main() {
 	if err != nil {
 		fmt.Println("There was an error", err)
 	} else {
-		fmt.Println("POST-ENCRYPT: ", bs)
+		fmt.Println("COMPARE ENCRYPTED PASSWORD WITH CANDIDATE PASSWORD")
+
+		newPassword := "password1234"
+		err := bcrypt.CompareHashAndPassword(bs, []byte(newPassword))
+
+		if err != nil {
+			fmt.Println("PASSWORD DO NOT MATCH!!")
+		} else {
+			fmt.Println("PASSWORDS MATCH!!!")
+		}
 	}
 }
