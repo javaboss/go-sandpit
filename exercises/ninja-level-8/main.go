@@ -6,7 +6,8 @@ import (
 )
 
 func main() {
-
+	exercise1and2()
+	exercise3()
 }
 
 func exercise1and2() {
@@ -68,7 +69,7 @@ func exercise1and2() {
 }
 
 func exercise3() {
-	// EXERCISE 3 -
+	// EXERCISE 3 - JSON encode with a customer encoder to stdout
 	type user struct {
 		First   string
 		Last    string
