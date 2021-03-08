@@ -10,6 +10,11 @@ type user struct {
 	Age   int
 }
 
+type unmarshalledUser []struct {
+	First string `json:"First"`
+	Age   int    `json:"Age"`
+}
+
 func main() {
 	// EXERCISE 1 - JSON Marshal
 	u1 := user{
@@ -37,4 +42,5 @@ func main() {
 	} else {
 		fmt.Println("BS:", string(bs))
 	}
+
 }
