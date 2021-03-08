@@ -43,4 +43,18 @@ func main() {
 		fmt.Println("BS:", string(bs))
 	}
 
+	// EXERCISE 2 - JSON Unmarshal
+
+	// this is using a generated slice of struct from https://mholt.github.io/json-to-go/
+	// you could just do var newUsers []user
+
+	var newUsers unmarshalledUser
+
+	err = json.Unmarshal(bs, &newUsers)
+
+	if err != nil {
+		fmt.Println("Error:", err)
+	} else {
+		fmt.Println(newUsers)
+	}
 }
