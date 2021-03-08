@@ -198,14 +198,14 @@ func exercise5() {
 
 	fmt.Println("EXERCISE 5")
 
-	fmt.Println("USERS")
+	fmt.Println("---------- USERS ----------")
 	printUsers(users)
 
-	fmt.Println("SORT BY AGE")
+	fmt.Println("---------- SORT BY AGE ----------")
 	sort.Sort(byAge(users))
 	printUsers(users)
 
-	fmt.Println("SORT BY LAST NAME")
+	fmt.Println(" SORT BY LAST NAME ----------")
 	sort.Sort(byLast(users))
 	printUsers(users)
 }
@@ -213,6 +213,7 @@ func exercise5() {
 func printUsers(users []user) {
 	for _, u := range users {
 		fmt.Println(u.First, u.Last, u.Age)
+		sort.Strings(u.Sayings)
 		for _, v := range u.Sayings {
 			fmt.Println("\t", v)
 		}
