@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"os"
 )
 
 func main() {
@@ -112,8 +113,14 @@ func exercise3() {
 
 	users := []user{u1, u2, u3}
 
+	fmt.Println("Exercise 3")
+
+	fmt.Println("users")
 	fmt.Println(users)
 
-	// your code goes here
-
+	fmt.Println("Encoding to stdout")
+	err := json.NewEncoder(os.Stdout).Encode(users) // using an encoder (os.stdout)
+	if err != nil {
+		fmt.Println("Error:", err)
+	}
 }
