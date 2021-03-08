@@ -55,5 +55,10 @@ func main() {
 		fmt.Println("Error:", err)
 	} else {
 		fmt.Println(newUsers)
+
+		for i, user := range newUsers {
+			fmt.Println("Person number #", i+1)
+			fmt.Println(user)
+		}
 	}
 }
