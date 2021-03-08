@@ -49,7 +49,6 @@ func main() {
 	// you could just do var newUsers []user
 
 	var newUsers unmarshalledUser
-
 	err = json.Unmarshal(bs, &newUsers)
 
 	if err != nil {
