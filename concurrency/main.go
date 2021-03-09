@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"runtime"
 	"sync"
+	"time"
 )
 
 var wg sync.WaitGroup
@@ -29,6 +30,28 @@ func main() {
 		ch <- doSomething(5)
 	}()
 	fmt.Println(<-ch)
+
+	// Race Condition
+	fmt.Println("CPUs\t\t", runtime.NumCPU())
+	fmt.Println("Goroutines\t", runtime.NumGoroutine())
+
+	const gs = 100
+	var wg = sync.WaitGroup
+
+	wg.Add(gs)
+
+	counter := 0
+	for i := 0; i < gs; i++ {
+		go func() {
+			v := counter
+			time.sleep(time.Second)
+			runtime.Gosched() // tells the CPU to 'go run something else' or yield control
+			v++
+			counter = v
+			wg.Done()
+		}()
+	}
+	fmt.Println("Goroutines\t", runtime.NumGoroutine())
 
 }
 
