@@ -9,6 +9,7 @@ import (
 var wg sync.WaitGroup
 
 func main() {
+	// WaitGroup
 	fmt.Println("OS\t\t", runtime.GOOS)
 	fmt.Println("ARCH\t\t", runtime.GOARCH)
 	fmt.Println("CPUs\t\t", runtime.NumCPU())
@@ -21,6 +22,14 @@ func main() {
 	fmt.Println("CPUs\t\t", runtime.NumCPU())
 	fmt.Println("Goroutines\t", runtime.NumGoroutine())
 	wg.Wait()
+
+	// Channels
+	ch := make(chan int)
+	go func() {
+		ch <- doSomething(5)
+	}()
+	fmt.Println(<-ch)
+
 }
 
 func foo() {
@@ -34,4 +43,8 @@ func bar() {
 	for i := 0; i < 10; i++ {
 		fmt.Println("bar:", i)
 	}
+}
+
+func doSomething(x int) int {
+	return x * 5
 }
