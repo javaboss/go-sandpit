@@ -5,6 +5,13 @@ import (
 	"sync"
 )
 
+/*
+instead of using separate functions (below) you could use anonymous functions i.e
+go fund() {
+	// do something
+}()
+*/
+
 var wg sync.WaitGroup
 
 func routineOne() {
