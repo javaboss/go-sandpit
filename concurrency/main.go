@@ -39,14 +39,20 @@ func main() {
 
 	wg.Add(gs)
 
+	var mutex sync.Mutex
+
 	counter := 0
 	for i := 0; i < gs; i++ {
 		go func() {
+			mutex.Lock()
+
 			v := counter
 			// time.sleep(time.Second) - could use time to delay also!
 			runtime.Gosched() // tells the CPU to 'go run something else' or yield control
 			v++
 			counter = v
+
+			mutex.Unlock()
 			wg.Done()
 		}()
 		fmt.Println("Goroutines\t", runtime.NumGoroutine())
