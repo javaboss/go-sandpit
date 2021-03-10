@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"runtime"
 	"sync"
-	"time"
 )
 
 var wg sync.WaitGroup
@@ -36,7 +35,7 @@ func main() {
 	fmt.Println("Goroutines\t", runtime.NumGoroutine())
 
 	const gs = 100
-	var wg = sync.WaitGroup
+	var wg sync.WaitGroup
 
 	wg.Add(gs)
 
@@ -44,15 +43,18 @@ func main() {
 	for i := 0; i < gs; i++ {
 		go func() {
 			v := counter
-			time.sleep(time.Second)
+			// time.sleep(time.Second) - could use time to delay also!
 			runtime.Gosched() // tells the CPU to 'go run something else' or yield control
 			v++
 			counter = v
 			wg.Done()
 		}()
+		fmt.Println("Goroutines\t", runtime.NumGoroutine())
 	}
-	fmt.Println("Goroutines\t", runtime.NumGoroutine())
 
+	wg.Wait()
+
+	fmt.Println("Counter:", counter)
 }
 
 func foo() {
