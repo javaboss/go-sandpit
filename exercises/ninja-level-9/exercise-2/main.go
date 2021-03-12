@@ -26,7 +26,12 @@ func main() {
 		last:  "Liddicott",
 	}
 
+	// this works
+	saySomething(&person)
+
+	// or this works...
 	person.speak()
 
-	saySomething(&person)
+	// this does NOT work
+	// saySomething(person)
 }
