@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"runtime"
 	"sync"
 )
 
@@ -19,7 +18,7 @@ func main() {
 		go func() {
 			mlock.Lock()
 			v := counter
-			runtime.Gosched()
+			//			runtime.Gosched()
 			v++
 			counter = v
 			mlock.Unlock()
