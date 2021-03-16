@@ -16,7 +16,7 @@ func main() {
 	for i := 0; i < 100; i++ {
 		go func() {
 			atomic.AddInt64(&counter, 1)
-			fmt.Println("Func Counter:", counter)
+			fmt.Println("Func Counter:", atomic.LoadInt64(&counter))
 			wg.Done()
 		}()
 	}
