@@ -5,14 +5,10 @@ import "fmt"
 func main() {
 	c := make(chan int, 2)
 
-	// c := make(<-chan int, 2) // RECEIVE only channel - example
-	// c := make(chan<- int, 2) // SEND only channel - example
+	cr := make(<-chan int, 2) // receieve only channel
+	cs := make(chan<- int, 2) // send only channel
 
-	c <- 42
-	c <- 43
-
-	fmt.Println(<-c)
-	fmt.Println(<-c)
-
-	fmt.Printf("%T\n", c)
+	fmt.Printf("c\t%T\n", c)
+	fmt.Printf("cr\t%T\n", cr)
+	fmt.Printf("cs\t%T\n", cs)
 }
