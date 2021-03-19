@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 func main() {
 	even := make(chan int)
 	odd := make(chan int)
@@ -9,6 +11,7 @@ func main() {
 	go send(even, odd, quit)
 
 	// receive
+	receive(even, odd, quit)
 }
 
 func send(e, o, q chan<- int) {
@@ -22,4 +25,19 @@ func send(e, o, q chan<- int) {
 	close(e)
 	close(o)
 	q <- 0
+}
+
+func receive(e, o <-chan int, q chan int) {
+	for {
+		select {
+		case v := <-e:
+			fmt.Println("from the even channel", v)
+		case v := <-o:
+			fmt.Println("from the odd channel", v)
+		case v := <-q:
+			fmt.Println("from the quit channel", v)
+			close(q)
+			return
+		}
+	}
 }
