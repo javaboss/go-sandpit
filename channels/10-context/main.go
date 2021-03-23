@@ -13,10 +13,18 @@ func main() {
 	fmt.Printf("Context type\t%T\t\n", ctx)
 	fmt.Println("-----------------")
 
-	ctx, _ = context.WithCancel(ctx)
+	ctx, cancel := context.WithCancel(ctx)
 
 	fmt.Println("context:\t", ctx)
 	fmt.Println("context err:\t", ctx.Err())
 	fmt.Printf("context type:\t%T\n", ctx)
 	fmt.Println("----------")
+
+	cancel()
+
+	fmt.Println("context:\t", ctx)
+	fmt.Println("context err:\t", ctx.Err())
+	fmt.Printf("context type:\t%T\n", ctx)
+	fmt.Println("----------")
+
 }
