@@ -7,11 +7,15 @@ import (
 func main() {
 	c := make(chan int)
 
-	v, ok :=
-		fmt.Println(v, ok)
+	go func() {
+		c <- 42
+	}()
+
+	v, ok := <-c
+	fmt.Println(v, ok)
 
 	close(c)
 
-	v, ok =
-		fmt.Println(v, ok)
+	v, ok = <-c
+	fmt.Println(v, ok)
 }
