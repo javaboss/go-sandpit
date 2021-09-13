@@ -22,7 +22,6 @@ func main() {
 	bs, err := toJSON(p1)
 	if err != nil {
 		log.Fatalln(err)
-		return
 	}
 	fmt.Println(string(bs))
 
