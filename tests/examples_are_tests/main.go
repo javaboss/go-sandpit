@@ -1,5 +1,8 @@
 package main
 
+// Testable Examples in Go...
+// https://go.dev/blog/examples
+
 import (
 	"fmt"
 	"go-sandpit/tests/doc_tests/acdc"
