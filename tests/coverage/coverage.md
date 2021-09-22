@@ -10,6 +10,7 @@ go test -coverprofile c.out
 
 show in browser:
 
+(need to create the c.out file first - see commands above!)
 go tool cover -html=c.out
 
 learn more
